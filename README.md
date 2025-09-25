@@ -13,88 +13,67 @@
   <style>
    /* ==== MOBILE-FIRST COMPACT PATCH (revised) ==== */
 
-/* iOS가 글자 임의 확대하는 것 방지 */
-html { -webkit-text-size-adjust: 100%; }
+/* ===== MOBILE-FIRST + 전체 축소 + "원본비율 유지" 슬라이더 (drop-in patch)
+   => 이 블록을 네 파일의 <style> 맨 아래에 그대로 붙여넣기 ===== */
 
-/* 1) 전체 폭: 데스크탑은 살짝 좁게, 모바일은 화면에 딱 맞게 */
-:root{ --maxw: 880px; } /* 필요하면 820~920 사이로 조절해도 OK */
+/* iOS 임의 확대 방지 */
+html{ -webkit-text-size-adjust:100%; }
+
+/* 1) 전체 레이아웃을 폰 기준 크기로 */
+:root{ --maxw: 880px; } /* 820~920px 사이에서 취향대로 조절 가능 */
 .container{
+  max-width: var(--maxw) !important;       /* 기존 1080px 규칙 무시하고 덮어씀 */
   width: min(100%, var(--maxw));
   margin: 0 auto;
   padding: clamp(12px, 4vw, 22px);
   box-sizing: border-box;
 }
 
-/* 2) 제목/본문 크기 & 간격 한 단계 더 다운 */
-.brandline{
-  font-size: clamp(20px, 5.4vw, 30px);
-  line-height: 1.18;
-  letter-spacing: -0.3px;
-  margin: clamp(6px, 2.2vw, 10px) 0 clamp(6px, 2vw, 10px);
-}
-.subtitle{
-  font-size: clamp(12px, 3.2vw, 14px);
-  line-height: 1.5;
-  max-width: 28ch;  /* 문장 폭 줄여 더 안정감 있게 */
-  margin: 0 auto;
-  color: var(--muted);
-}
+/* 2) 글자/간격 자동 축소(폰에서 작게, 데스크탑에서 적당히) */
+.brandline{ font-size: clamp(20px, 5.6vw, 30px); line-height:1.18; margin: clamp(6px,2.2vw,10px) 0; letter-spacing:-0.3px; }
+.subtitle { font-size: clamp(12px, 3.2vw, 14px); line-height:1.5; color: var(--muted); max-width:28ch; margin:0 auto; }
 .section-title{ font-size: clamp(16px, 3.8vw, 20px); }
-.card blockquote{ font-size: clamp(13px, 3.6vw, 16px); }
-.mini{ font-size: clamp(11px, 3.2vw, 13px); }
-
-/* 3) 배너/칩/SNS 버튼 컴팩트 */
-.banner-inner{ padding: clamp(14px, 4.2vw, 18px); }
-.chips{ gap: 6px; margin-top: 8px; justify-content: center; }
-.chip{
-  padding: 4px 8px;
-  font-size: clamp(10px, 2.8vw, 11px);
-  border-radius: 999px;
-}
-.sns{ gap: 8px; margin-top: 12px; justify-content: center; }
-.sns .btn{
-  font-size: clamp(12px, 3.1vw, 13px);
-  padding: 8px 12px;
-  border-width: 2px;
-  border-radius: 14px;
-  box-shadow: 0 4px 12px rgba(2,6,23,.05);
-}
-
-/* 4) 섹션 간격/카드 패딩 축소 */
-section{ margin-top: clamp(14px, 4.6vw, 24px); }
 .card{ padding: clamp(12px, 3.6vw, 18px); }
+section{ margin-top: clamp(16px, 5vw, 28px); }
 
-/* 5) 상단 슬라이더: 3:4 유지 + 화면 높이/폭 안 넘게 */
-.photo-viewport{
-  aspect-ratio: 3 / 4;
-  width: min(100%, 92vw);
-  max-height: min(65vh, 90svh);
+/* 3) 버튼/칩 컴팩트 */
+.sns{ gap:10px; justify-content:center; flex-wrap:wrap; }
+.sns .btn{ font-size: clamp(12px, 3.2vw, 13px); padding:8px 12px; border-width:2px; border-radius:14px; }
+.chips{ gap:6px; margin-top:8px; justify-content:center; }
+.chip{ padding:4px 8px; font-size: clamp(10px, 2.8vw, 11px); border-radius:999px; }
+
+/* 4) 사진 슬라이더 — ❗원본 비율 그대로 유지(잘라내지 않음) */
+#photos .photo-viewport{
+  aspect-ratio: auto !important;           /* 이전 3:4 강제 규칙 무효화 */
+  width: min(100%, 480px);                  /* 데스크탑에서도 과하게 커지지 않게 상한 */
   margin: 0 auto;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid var(--border);
 }
-.photo-track{ height: 100%; }
-#photos .photo-dots{ margin-top: 6px; }
-#photos{ margin-bottom: 0; }
-
-/* 6) 프로젝트 카드/썸네일 소형화 */
-.project{ padding: clamp(10px, 2.4vw, 14px); gap: clamp(8px, 2.2vw, 12px); }
-.thumb{ width: clamp(60px, 18vw, 74px); height: clamp(60px, 18vw, 74px); }
-
-/* 7) 갤러리: 폰 2열, 태블릿 3열, 데스크탑 자동 */
-.gallery{ grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: clamp(10px, 3vw, 14px); }
-.gallery img{ aspect-ratio: 3 / 4; }
-
-/* 8) 모바일 강화 */
-@media (max-width: 768px){
-  .grid.cols-2, .grid.cols-3{ grid-template-columns: 1fr; }
-  .section-title:after{ height: 3px; width: 54px; }
-  footer{ font-size: 12px; margin: 32px 0 16px; }
+#photos .photo-track{
+  display: flex;                            /* 가로 슬라이드 */
+  transition: transform .5s ease;
+  height: auto !important;                  /* 프레임 높이를 이미지 비율에 맞춤 */
+}
+#photos .photo-track img{
+  flex: 0 0 100%;
+  width: 100%;
+  height: auto !important;                  /* ✅ 원본 비율 유지의 핵심 */
+  object-fit: contain !important;           /* ✅ 잘리지 않게, 여백 허용 */
+  display: block;
 }
 
-/* 9) 초소형 기기(<= 390px) */
-@media (max-width: 390px){
+/* 5) 갤러리(썸네일)는 3:4로 통일해서 그리드 안정감 유지 */
+.gallery{ grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap: clamp(10px, 3vw, 14px); }
+.gallery img{ aspect-ratio: 3 / 4; object-fit: cover; }
+
+/* 6) 초소형 폰 최적화 */
+@media (max-width:390px){
   :root{ --maxw: 100%; }
-  .chips{ display: none; } /* 필요 없으면 주석 해제해서 숨김 */
+  .chips{ display:none; } /* 필요시 주석 처리 */
 }
+
 
 
     :root{

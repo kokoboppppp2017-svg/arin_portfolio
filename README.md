@@ -262,7 +262,6 @@ section{ margin-top: clamp(14px, 4.6vw, 24px); }
 
 
   </style>
-
 </head>
 <body>
   <div class="container">

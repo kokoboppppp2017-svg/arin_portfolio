@@ -11,29 +11,91 @@
 
 
   <style>
-    /* 반응형 컨테이너 */
-.container {
-  max-width: 100%;
-  width: 100%;
-  padding: 0 16px; /* 좌우 여백 */
+   /* ==== MOBILE-FIRST COMPACT PATCH (revised) ==== */
+
+/* iOS가 글자 임의 확대하는 것 방지 */
+html { -webkit-text-size-adjust: 100%; }
+
+/* 1) 전체 폭: 데스크탑은 살짝 좁게, 모바일은 화면에 딱 맞게 */
+:root{ --maxw: 880px; } /* 필요하면 820~920 사이로 조절해도 OK */
+.container{
+  width: min(100%, var(--maxw));
+  margin: 0 auto;
+  padding: clamp(12px, 4vw, 22px);
   box-sizing: border-box;
 }
 
-/* 이미지 반응형 */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto; /* 가운데 정렬 */
+/* 2) 제목/본문 크기 & 간격 한 단계 더 다운 */
+.brandline{
+  font-size: clamp(20px, 5.4vw, 30px);
+  line-height: 1.18;
+  letter-spacing: -0.3px;
+  margin: clamp(6px, 2.2vw, 10px) 0 clamp(6px, 2vw, 10px);
+}
+.subtitle{
+  font-size: clamp(12px, 3.2vw, 14px);
+  line-height: 1.5;
+  max-width: 28ch;  /* 문장 폭 줄여 더 안정감 있게 */
+  margin: 0 auto;
+  color: var(--muted);
+}
+.section-title{ font-size: clamp(16px, 3.8vw, 20px); }
+.card blockquote{ font-size: clamp(13px, 3.6vw, 16px); }
+.mini{ font-size: clamp(11px, 3.2vw, 13px); }
+
+/* 3) 배너/칩/SNS 버튼 컴팩트 */
+.banner-inner{ padding: clamp(14px, 4.2vw, 18px); }
+.chips{ gap: 6px; margin-top: 8px; justify-content: center; }
+.chip{
+  padding: 4px 8px;
+  font-size: clamp(10px, 2.8vw, 11px);
+  border-radius: 999px;
+}
+.sns{ gap: 8px; margin-top: 12px; justify-content: center; }
+.sns .btn{
+  font-size: clamp(12px, 3.1vw, 13px);
+  padding: 8px 12px;
+  border-width: 2px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(2,6,23,.05);
 }
 
-/* 기본 여백 및 폰트 크기 */
-body {
-  margin: 0;
-  padding: 0;
-  font-size: 16px; /* 모바일 기준 글자 크기 */
-  line-height: 1.5;
+/* 4) 섹션 간격/카드 패딩 축소 */
+section{ margin-top: clamp(14px, 4.6vw, 24px); }
+.card{ padding: clamp(12px, 3.6vw, 18px); }
+
+/* 5) 상단 슬라이더: 3:4 유지 + 화면 높이/폭 안 넘게 */
+.photo-viewport{
+  aspect-ratio: 3 / 4;
+  width: min(100%, 92vw);
+  max-height: min(65vh, 90svh);
+  margin: 0 auto;
 }
+.photo-track{ height: 100%; }
+#photos .photo-dots{ margin-top: 6px; }
+#photos{ margin-bottom: 0; }
+
+/* 6) 프로젝트 카드/썸네일 소형화 */
+.project{ padding: clamp(10px, 2.4vw, 14px); gap: clamp(8px, 2.2vw, 12px); }
+.thumb{ width: clamp(60px, 18vw, 74px); height: clamp(60px, 18vw, 74px); }
+
+/* 7) 갤러리: 폰 2열, 태블릿 3열, 데스크탑 자동 */
+.gallery{ grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: clamp(10px, 3vw, 14px); }
+.gallery img{ aspect-ratio: 3 / 4; }
+
+/* 8) 모바일 강화 */
+@media (max-width: 768px){
+  .grid.cols-2, .grid.cols-3{ grid-template-columns: 1fr; }
+  .section-title:after{ height: 3px; width: 54px; }
+  footer{ font-size: 12px; margin: 32px 0 16px; }
+}
+
+/* 9) 초소형 기기(<= 390px) */
+@media (max-width: 390px){
+  :root{ --maxw: 100%; }
+  .chips{ display: none; } /* 필요 없으면 주석 해제해서 숨김 */
+}
+
 
     :root{
       --bg:#ffffff; --text:#0f172a; --muted:#64748b; --card:#f8fafc; --border:#e5e7eb;

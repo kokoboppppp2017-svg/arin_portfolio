@@ -106,7 +106,6 @@ section{ margin-top: clamp(14px, 4.6vw, 24px); }
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Pretendard',system-ui,-apple-system,Segoe UI,Roboto,Noto Sans KR,sans-serif}
     a{color:var(--vitamin);text-decoration:none}
     a:hover{text-decoration:underline}
-    .container{max-width:1080px;margin:0 auto;padding:24px}
 
     /* ======= TOP (제목 > SNS) ======= */
     .banner{position:relative;border-radius:28px;overflow:hidden;background:linear-gradient(135deg,#eaf7ff 0%, #eaf0ff 35%, #fff 100%);border:1px solid var(--border);}
@@ -191,9 +190,7 @@ section{ margin-top: clamp(14px, 4.6vw, 24px); }
     .gallery img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:14px;border:1px solid var(--border)}
 
     footer{margin:48px 0 24px;color:var(--muted);font-size:13px;text-align:center}
-    <img src="./paris.png" alt="Paris trip">
-<img src="./singapore.png" alt="Singapore trip">
-<img src="./hostshow.png" alt="Hosting show">
+
 /* ===== Responsive scale tuning (drop-in patch) ===== */
 /* ==== MOBILE-FIRST COMPACT PATCH ==== */
 

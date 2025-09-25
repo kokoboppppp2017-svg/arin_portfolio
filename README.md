@@ -176,6 +176,29 @@
 
   </style>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+/* 반응형 컨테이너 */
+.container {
+  max-width: 100%;
+  width: 100%;
+  padding: 0 16px; /* 좌우 여백 */
+  box-sizing: border-box;
+}
+
+/* 이미지 반응형 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* 가운데 정렬 */
+}
+
+/* 기본 여백 및 폰트 크기 */
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px; /* 모바일 기준 글자 크기 */
+  line-height: 1.5;
+}
 
 </head>
 <body>

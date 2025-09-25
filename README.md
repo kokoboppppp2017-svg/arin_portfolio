@@ -244,7 +244,7 @@
             <ul>
               <li>1:1 발성·호흡·딕션 코칭</li>
               <li>발음·억양 교정 및 전달력 향상</li>
-              <li>쇼호스트·면접·스피치 대비 실전 피드백</li>
+              <li>직장인 스피치 대비 실전 피드백</li>
             </ul>
           </div>
         </details>
@@ -262,7 +262,7 @@
           <summary>🎬 Content & Collaboration / 콘텐츠 & 협업</summary>
           <div class="acc-body">
             <ul>
-              <li>브랜드/숙소 체험 리뷰, 광고·협찬 명확 표기</li>
+              <li>브랜드 체험 리뷰, 광고·협찬 영상 제작</li>
               <li>유튜브·릴스 대본/자막 제작</li>
               <li>촬영·나레이션·편집까지 End-to-End 진행</li>
             </ul>
@@ -271,7 +271,7 @@
         <details class="acc">
           <summary>📜 Certificates & Licenses / 자격증</summary>
           <div class="cert-grid">
-            <div class="cert"><h4>손해보험 설계사 (롯데)</h4><p>자동차·화재·질병·상해보험 상품 설계, 상담 및 판매 자격</p></div>
+            <div class="cert"><h4>롯데 손해보험 설계사 </h4><p>자동차·화재·질병·상해보험 상품 설계, 상담 및 판매 자격</p></div>
             <div class="cert"><h4>SMAT 서비스 경영자격 1급</h4><p>서비스 마인드, 응대·마케팅 등 고객 중심 커뮤니케이션</p></div>
             <div class="cert"><h4>CS Leaders 관리사</h4><p>고객 응대·감정 조절·갈등 해결 등 실전 CS 역량</p></div>
             <div class="cert"><h4>컴퓨터 활용능력 2급</h4><p>엑셀·워드 등 문서 작업, 데이터 정리, 기획서 작성</p></div>
@@ -289,18 +289,19 @@
           <summary>Awards & Startup / 수상 & 창업</summary>
           <div class="acc2-body">
             <ul>
-              <li>교내 창업아이디어 경진대회 장려상</li>
+              <li>네이버 스마트스토어 인테리어 소품 쇼핑몰 운영</li>
               <li>청년 도박문제 예방 공청회 최우수상</li>
               <li>경기청년사다리 NUS 연수 우수참가자 / 경기도지사 표창</li>
-              <li>네이버 스마트스토어 인테리어 소품 쇼핑몰 운영</li>
+              <li>교내 창업아이디어 경진대회 장려상</li>
             </ul>
           </div>
         </details>
         <details class="acc2">
-          <summary>Youth Programs & Leadership / 청년 프로그램 & 리더십</summary>
+          <summary>Youth Programs & Leadership 
+          / 청년 프로그램 & 리더십</summary>
           <div class="acc2-body">
             <ul>
-              <li>경기청년사다리 (학교 대표)</li>
+              <li>경기청년사다리 (싱가포르 국립대학교 학교 대표)</li>
               <li>경기도 일자리재단 잡아바크루 1기</li>
               <li>청년의 날 홍보대사단 부단장</li>
               <li>청년의 날 해외청년 퀴즈대회 사회자</li>
@@ -323,8 +324,8 @@
           <div class="acc2-body">
             <ul>
               <li>청년 도박문제 예방 정책 개발 특별위원회</li>
-              <li>대학생국회 산업통상자원중소벤처기업위원회</li>
-              <li>제3대 대학생국회 외교통일국방 제3위원회</li>
+              <li>대학생국회 산업통상자원중소벤처기업 위원회 위원 </li>
+              <li>제3대 대학생국회 외교통일국방 제3위원회 법안공청회 사회자 </li>
             </ul>
           </div>
         </details>
@@ -338,16 +339,16 @@
         <div class="project">
           <div class="thumb" style="background-image:url('./thumb1.jpg');background-size:cover;background-position:center"></div>
           <div>
-            <div style="font-weight:700">Showreel · 60s</div>
-            <p class="mini">밝은 톤·선명한 전달·신뢰감이 담긴 하이라이트</p>
+            <div style="font-weight:700">Vision Talk </div>
+            <p class="mini">경기청년 사다리 발대식ㅣ내가 꿈꾸는 말하기 방식 </p>
             <a href="#" target="_blank">영상 보기</a>
           </div>
         </div>
         <div class="project">
           <div class="thumb" style="background-image:url('./thumb2.jpg');background-size:cover;background-position:center"></div>
           <div>
-            <div style="font-weight:700">브랜드 협업/제공 콘텐츠</div>
-            <p class="mini">진정성과 메시지가 살아있는 협업 사례</p>
+            <div style="font-weight:700">My Picks</div>
+            <p class="mini">내돈내산 리얼 리뷰</p>
             <a href="#" target="_blank">영상 보기</a>
           </div>
         </div>
@@ -362,15 +363,15 @@
           <div class="thumb" style="background-image:url('./collab1.jpg');background-size:cover;background-position:center"></div>
           <div>
             <div style="font-weight:700">브랜드 협업 콘텐츠</div>
-            <p class="mini">제품/숙소 체험 기반 리뷰 · 광고/협찬 명확 표기</p>
+            <p class="mini">제품/숙소 체험 기반 리뷰 · 광고/협찬 제작</p>
             <a href="#" target="_blank" rel="noopener">링크 보기</a>
           </div>
         </div>
         <div class="project">
           <div class="thumb" style="background-image:url('./collab2.jpg');background-size:cover;background-position:center"></div>
           <div>
-            <div style="font-weight:700">발표 & 무대 콘텐츠</div>
-            <p class="mini">경기청년사다리 발대식 발표 등 하이라이트</p>
+            <div style="font-weight:700">Travel Vlogs</div>
+            <p class="mini">상과 연결되는 나의 여정</p>
             <a href="#" target="_blank" rel="noopener">영상 보기</a>
           </div>
         </div>
@@ -378,7 +379,7 @@
           <div class="thumb" style="background-image:url('./collab3.jpg');background-size:cover;background-position:center"></div>
           <div>
             <div style="font-weight:700">SNS/블로그 협업</div>
-            <p class="mini">릴스·블로그 콘텐츠 모음</p>
+            <p class="mini"> 블로그 콘텐츠 모음</p>
             <a href="#" target="_blank" rel="noopener">모아보기</a>
           </div>
         </div>

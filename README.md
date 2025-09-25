@@ -263,7 +263,6 @@ section{ margin-top: clamp(14px, 4.6vw, 24px); }
 </head>
 <body>
   <div class="container">
-
     <!-- TOP -->
     <section class="banner">
       <div class="banner-inner">
@@ -315,7 +314,7 @@ section{ margin-top: clamp(14px, 4.6vw, 24px); }
       <div class="card">
         <blockquote style="margin:0;font-size:18px;line-height:1.6">
           <strong>백문이 불여일견(百聞不如一見).</strong>   저는 직접 부딪히며 배우고, 
-          그 경험을 말과 콘텐츠로 전하는 사람입니다.
+              그 경험을 말과 콘텐츠로 전하는 사람입니다.
         </blockquote>
       </div>
     </section>

@@ -256,28 +256,67 @@ section{ margin-top: clamp(14px, 4.6vw, 24px); }
   .subtitle{ font-size: 12px; }
   .sns .btn{ padding: 7px 10px; }
 }
-    /* ===== Desktop 3:4 강제 고정 패치 ===== */
+/* ===== MOBILE-FIRST + 전체 축소 + "원본비율 유지" 슬라이더 (drop-in patch)
+   => 이 블록을 네 파일의 <style> 맨 아래에 그대로 붙여넣기 ===== */
+
+/* iOS 임의 확대 방지 */
+html{ -webkit-text-size-adjust:100%; }
+
+/* 1) 전체 레이아웃을 폰 기준 크기로 */
+:root{ --maxw: 880px; } /* 820~920px 사이에서 취향대로 조절 가능 */
+.container{
+  max-width: var(--maxw) !important;       /* 기존 1080px 규칙 무시하고 덮어씀 */
+  width: min(100%, var(--maxw));
+  margin: 0 auto;
+  padding: clamp(12px, 4vw, 22px);
+  box-sizing: border-box;
+}
+
+/* 2) 글자/간격 자동 축소(폰에서 작게, 데스크탑에서 적당히) */
+.brandline{ font-size: clamp(20px, 5.6vw, 30px); line-height:1.18; margin: clamp(6px,2.2vw,10px) 0; letter-spacing:-0.3px; }
+.subtitle { font-size: clamp(12px, 3.2vw, 14px); line-height:1.5; color: var(--muted); max-width:28ch; margin:0 auto; }
+.section-title{ font-size: clamp(16px, 3.8vw, 20px); }
+.card{ padding: clamp(12px, 3.6vw, 18px); }
+section{ margin-top: clamp(16px, 5vw, 28px); }
+
+/* 3) 버튼/칩 컴팩트 */
+.sns{ gap:10px; justify-content:center; flex-wrap:wrap; }
+.sns .btn{ font-size: clamp(12px, 3.2vw, 13px); padding:8px 12px; border-width:2px; border-radius:14px; }
+.chips{ gap:6px; margin-top:8px; justify-content:center; }
+.chip{ padding:4px 8px; font-size: clamp(10px, 2.8vw, 11px); border-radius:999px; }
+
+/* 4) 사진 슬라이더 — ❗원본 비율 그대로 유지(잘라내지 않음) */
 #photos .photo-viewport{
-  width: min(100%, 900px);   /* 데스크탑에서 너무 넓어지지 않게 상한 */
-  aspect-ratio: 3 / 4;       /* 3:4 비율 고정 */
-  height: auto !important;   /* 혹시 다른 규칙이 높이를 건드려도 무시 */
+  aspect-ratio: auto !important;           /* 이전 3:4 강제 규칙 무효화 */
+  width: min(100%, 480px);                  /* 데스크탑에서도 과하게 커지지 않게 상한 */
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid var(--border);
 }
-#photos .photo-track{ height: 100% !important; }
+#photos .photo-track{
+  display: flex;                            /* 가로 슬라이드 */
+  transition: transform .5s ease;
+  height: auto !important;                  /* 프레임 높이를 이미지 비율에 맞춤 */
+}
 #photos .photo-track img{
-  width: 100%; height: 100% !important;
-  object-fit: cover; display: block;
+  flex: 0 0 100%;
+  width: 100%;
+  height: auto !important;                  /* ✅ 원본 비율 유지의 핵심 */
+  object-fit: contain !important;           /* ✅ 잘리지 않게, 여백 허용 */
+  display: block;
 }
-/* ===== Desktop 3:4 강제 고정 패치 ===== */
-#photos .photo-viewport{
-  width: min(100%, 900px);
-  aspect-ratio: 3 / 4;
-  height: auto !important;
+
+/* 5) 갤러리(썸네일)는 3:4로 통일해서 그리드 안정감 유지 */
+.gallery{ grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap: clamp(10px, 3vw, 14px); }
+.gallery img{ aspect-ratio: 3 / 4; object-fit: cover; }
+
+/* 6) 초소형 폰 최적화 */
+@media (max-width:390px){
+  :root{ --maxw: 100%; }
+  .chips{ display:none; } /* 필요시 주석 처리 */
 }
-#photos .photo-track{ height: 100% !important; }
-#photos .photo-track img{
-  width: 100%; height: 100% !important;
-  object-fit: cover; display: block;
-}
+
 
   </style>
 </head>

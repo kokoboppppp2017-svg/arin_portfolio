@@ -104,6 +104,10 @@
     .gallery img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:14px;border:1px solid var(--border)}
 
     footer{margin:48px 0 24px;color:var(--muted);font-size:13px;text-align:center}
+    <img src="./paris.png" alt="Paris trip">
+<img src="./singapore.png" alt="Singapore trip">
+<img src="./hostshow.png" alt="Hosting show">
+
   </style>
 </head>
 <body>
@@ -136,16 +140,16 @@
       <div class="photo-slider">
         <div class="photo-viewport">
           <div class="photo-track" id="pTrack">
-            <img src="./slide01.jpg" alt="slide 1">
-            <img src="./slide02.jpg" alt="slide 2">
-            <img src="./slide03.jpg" alt="slide 3">
-            <img src="./slide04.jpg" alt="slide 4">
-            <img src="./slide05.jpg" alt="slide 5">
-            <img src="./slide06.jpg" alt="slide 6">
-            <img src="./slide07.jpg" alt="slide 7">
-            <img src="./slide08.jpg" alt="slide 8">
-            <img src="./slide09.jpg" alt="slide 9">
-            <img src="./slide10.jpg" alt="slide 10">
+            <img src="./ar01.jpg" alt="slide 1">
+            <img src="./ar02.jpg" alt="slide 2">
+            <img src="./ar03.jpg" alt="slide 3">
+            <img src="./ar04.jpg" alt="slide 4">
+            <img src="./ar05.jpg" alt="slide 5">
+            <img src="./ar06.jpg" alt="slide 6">
+            <img src="./ar07.jpg" alt="slide 7">
+            <img src="./ar08.jpg" alt="slide 8">
+            <img src="./ar09.jpg" alt="slide 9">
+            <img src="./ar10.jpg" alt="slide 10">
           </div>
           <div class="photo-nav photo-prev" id="pPrev">❮</div>
           <div class="photo-nav photo-next" id="pNext">❯</div>

@@ -108,47 +108,65 @@
 <img src="./singapore.png" alt="Singapore trip">
 <img src="./hostshow.png" alt="Hosting show">
 /* ===== Responsive scale tuning (drop-in patch) ===== */
+/* ==== MOBILE-FIRST COMPACT PATCH ==== */
 
-/* 1) 전체 폭 살짝 줄이기 */
-:root { --maxw: 960px; }              /* 기존 1080 → 960 */
-.container { max-width: var(--maxw); }
+/* 공통 폭/글자 크기 살짝 줄이기 */
+:root{ --maxw: 920px; }                 /* 1080 → 920 */
+.container{ max-width: var(--maxw); padding: clamp(14px,4vw,24px); }
 
-/* 2) 글자 크기/간격을 화면폭에 맞춰 자동 조절 (clamp) */
-.brandline{ font-size: clamp(24px, 6.2vw, 40px); }
-.subtitle{  font-size: clamp(14px, 3.6vw, 18px); }
-.section-title{ font-size: clamp(18px, 4.4vw, 22px); }
-.card blockquote{ font-size: clamp(14px, 4vw, 18px); }
+/* 제목/본문 글자 자동 축소(폰에서 작게, 데스크탑에서 적당히) */
+.brandline{ font-size: clamp(22px, 6vw, 36px); margin: clamp(8px,2.6vw,12px) 0; }
+.subtitle{  font-size: clamp(13px, 3.6vw, 16px); }
+.section-title{ font-size: clamp(17px, 4.2vw, 21px); }
+.card blockquote{ font-size: clamp(13px, 3.8vw, 17px); }
 .mini{ font-size: clamp(12px, 3.4vw, 14px); }
 
-/* 3) SNS 버튼 더 컴팩트 */
+/* 상단 배너 여백/칩/SNS 버튼 작게 */
+.banner-inner{ padding: clamp(16px,4.5vw,22px); }
+.chips{ gap: clamp(6px,1.6vw,8px); }
+.chip{ padding: clamp(5px,1.4vw,7px) clamp(8px,2vw,12px); font-size: clamp(11px,3vw,12px); }
 .sns .btn{
-  font-size: clamp(12px, 3.4vw, 14px);
-  padding: clamp(6px,1.6vw,8px) clamp(10px,2.6vw,14px);
+  font-size: clamp(12px,3.4vw,14px);
+  padding: clamp(6px,1.8vw,8px) clamp(10px,2.6vw,14px);
+  border-width: 2px;
 }
 
-/* 4) 카드/썸네일 축소 */
-.project{ padding: clamp(10px, 2.2vw, 14px); }
-.thumb{
-  width: clamp(60px, 18vw, 80px);
-  height: clamp(60px, 18vw, 80px);
-}
+/* 섹션 간격/카드 패딩 축소 */
+section{ margin-top: clamp(16px, 5vw, 26px); }
+.card{ padding: clamp(14px, 4vw, 20px); }
 
-/* 5) 섹션 사이 여백 축소 */
-section{ margin-top: clamp(18px, 5vw, 28px); }
-
-/* 6) 상단 슬라이더: 3:4 유지 + 모바일에서 높이 과도하지 않게 */
-.photo-viewport{
-  aspect-ratio: 3 / 4;
-  max-height: min(70vh, 90svh);   /* 화면 높이의 70% 이내 */
-}
+/* 슬라이더: 3:4 유지 + 화면 높이 넘지 않게 */
+.photo-viewport{ aspect-ratio: 3/4; max-height: min(68vh, 90svh); }
 .photo-track{ height: 100%; }
 #photos .photo-dots{ margin-top: 6px; }
 #photos{ margin-bottom: 0; }
 
-/* 7) 모바일 그리드 열수 조정 */
+/* 리스트/아코디언 더 컴팩트 */
+details.acc > summary,
+details.acc2 > summary{ padding: clamp(12px,3.6vw,16px) clamp(14px,4vw,20px); font-weight: 700; }
+.acc-body, .acc2-body{ padding: clamp(8px,3.2vw,10px) clamp(14px,4vw,20px) clamp(14px,4vw,18px); }
+
+/* 프로젝트 카드/썸네일 작게 */
+.project{ padding: clamp(10px, 2.6vw, 14px); gap: clamp(8px,2.4vw,12px); }
+.thumb{ width: clamp(60px, 18vw, 76px); height: clamp(60px, 18vw, 76px); }
+
+/* 갤러리: 폰에서 2열, 태블릿 3열, 데스크탑 자동 */
+.gallery{ grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap: clamp(10px,3vw,14px); }
+.gallery img{ aspect-ratio: 3/4; }
+
+/* 더 강하게 모바일 최적화 (<= 768px) */
 @media (max-width: 768px){
-  .gallery{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .grid.cols-2, .grid.cols-3{ grid-template-columns: 1fr; }
+  .section-title:after{ height: 3px; width: 56px; }
+  footer{ font-size: 12px; margin: 36px 0 18px; }
 }
+
+/* 초소형 (<= 390px, iPhone mini 등) */
+@media (max-width: 390px){
+  :root{ --maxw: 100%; }
+  .chips{ display: none; } /* 너무 답답하면 주석 처리 */
+}
+
 
   </style>
 </head>

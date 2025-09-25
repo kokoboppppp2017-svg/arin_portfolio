@@ -140,16 +140,16 @@
       <div class="photo-slider">
         <div class="photo-viewport">
           <div class="photo-track" id="pTrack">
-            <img src="./ar01.jpeg" alt="slide 1">
-            <img src="./ar02.jpeg" alt="slide 2">
-            <img src="./ar03.jpeg" alt="slide 3">
-            <img src="./ar04.jpeg" alt="slide 4">
-            <img src="./ar05.jpeg" alt="slide 5">
-            <img src="./ar06.jpeg" alt="slide 6">
-            <img src="./ar07.jpeg" alt="slide 7">
-            <img src="./ar08.jpeg" alt="slide 8">
-            <img src="./ar09.jpeg" alt="slide 9">
-            <img src="./ar10.jpeg" alt="slide 10">
+            <img src="./ar01.jpeg?v=1" alt="slide 1">
+<img src="./ar02.jpeg?v=1" alt="slide 2">
+<img src="./ar03.jpeg?v=1" alt="slide 3">
+<img src="./ar04.jpeg?v=1" alt="slide 4">
+<img src="./ar05.jpeg?v=1" alt="slide 5">
+<img src="./ar06.jpeg?v=1" alt="slide 6">
+<img src="./ar07.jpeg?v=1" alt="slide 7">
+<img src="./ar08.jpeg?v=1" alt="slide 8">
+<img src="./ar09.jpeg?v=1" alt="slide 9">
+<img src="./ar10.jpeg?v=1" alt="slide 10">
           </div>
           <div class="photo-nav photo-prev" id="pPrev">❮</div>
           <div class="photo-nav photo-next" id="pNext">❯</div>

@@ -9,7 +9,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800&display=swap" rel="stylesheet">
-/* 반응형 컨테이너 */
+
+
+  <style>
+    /* 반응형 컨테이너 */
 .container {
   max-width: 100%;
   width: 100%;
@@ -33,7 +36,6 @@ body {
   line-height: 1.5;
 }
 
-  <style>
     :root{
       --bg:#ffffff; --text:#0f172a; --muted:#64748b; --card:#f8fafc; --border:#e5e7eb;
       --vitamin:#2563eb; --mint:#22c55e; --yt:#ff0033; --ig:#d62976; --blog:#111827; --mail:#2563eb; --tel:#10b981;

@@ -9,6 +9,30 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800&display=swap" rel="stylesheet">
+/* 반응형 컨테이너 */
+.container {
+  max-width: 100%;
+  width: 100%;
+  padding: 0 16px; /* 좌우 여백 */
+  box-sizing: border-box;
+}
+
+/* 이미지 반응형 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* 가운데 정렬 */
+}
+
+/* 기본 여백 및 폰트 크기 */
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px; /* 모바일 기준 글자 크기 */
+  line-height: 1.5;
+}
+
   <style>
     :root{
       --bg:#ffffff; --text:#0f172a; --muted:#64748b; --card:#f8fafc; --border:#e5e7eb;
@@ -175,30 +199,6 @@
 
 
   </style>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-/* 반응형 컨테이너 */
-.container {
-  max-width: 100%;
-  width: 100%;
-  padding: 0 16px; /* 좌우 여백 */
-  box-sizing: border-box;
-}
-
-/* 이미지 반응형 */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto; /* 가운데 정렬 */
-}
-
-/* 기본 여백 및 폰트 크기 */
-body {
-  margin: 0;
-  padding: 0;
-  font-size: 16px; /* 모바일 기준 글자 크기 */
-  line-height: 1.5;
-}
 
 </head>
 <body>

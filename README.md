@@ -107,6 +107,48 @@
     <img src="./paris.png" alt="Paris trip">
 <img src="./singapore.png" alt="Singapore trip">
 <img src="./hostshow.png" alt="Hosting show">
+/* ===== Responsive scale tuning (drop-in patch) ===== */
+
+/* 1) 전체 폭 살짝 줄이기 */
+:root { --maxw: 960px; }              /* 기존 1080 → 960 */
+.container { max-width: var(--maxw); }
+
+/* 2) 글자 크기/간격을 화면폭에 맞춰 자동 조절 (clamp) */
+.brandline{ font-size: clamp(24px, 6.2vw, 40px); }
+.subtitle{  font-size: clamp(14px, 3.6vw, 18px); }
+.section-title{ font-size: clamp(18px, 4.4vw, 22px); }
+.card blockquote{ font-size: clamp(14px, 4vw, 18px); }
+.mini{ font-size: clamp(12px, 3.4vw, 14px); }
+
+/* 3) SNS 버튼 더 컴팩트 */
+.sns .btn{
+  font-size: clamp(12px, 3.4vw, 14px);
+  padding: clamp(6px,1.6vw,8px) clamp(10px,2.6vw,14px);
+}
+
+/* 4) 카드/썸네일 축소 */
+.project{ padding: clamp(10px, 2.2vw, 14px); }
+.thumb{
+  width: clamp(60px, 18vw, 80px);
+  height: clamp(60px, 18vw, 80px);
+}
+
+/* 5) 섹션 사이 여백 축소 */
+section{ margin-top: clamp(18px, 5vw, 28px); }
+
+/* 6) 상단 슬라이더: 3:4 유지 + 모바일에서 높이 과도하지 않게 */
+.photo-viewport{
+  aspect-ratio: 3 / 4;
+  max-height: min(70vh, 90svh);   /* 화면 높이의 70% 이내 */
+}
+.photo-track{ height: 100%; }
+#photos .photo-dots{ margin-top: 6px; }
+#photos{ margin-bottom: 0; }
+
+/* 7) 모바일 그리드 열수 조정 */
+@media (max-width: 768px){
+  .gallery{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
 
   </style>
 </head>

@@ -330,7 +330,7 @@ section{ margin-top: clamp(14px, 4.6vw, 24px); }
             <ul>
               <li>1:1 발성·호흡·딕션 코칭</li>
               <li>발음·억양 교정 및 전달력 향상</li>
-              <li>직장인 스피치 대비 실전 피드백</li>
+              <li>가볍게 배우는 스피치 대비 실전</li>
             </ul>
           </div>
         </details>

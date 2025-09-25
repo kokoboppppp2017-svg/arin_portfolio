@@ -267,6 +267,17 @@ section{ margin-top: clamp(14px, 4.6vw, 24px); }
   width: 100%; height: 100% !important;
   object-fit: cover; display: block;
 }
+/* ===== Desktop 3:4 강제 고정 패치 ===== */
+#photos .photo-viewport{
+  width: min(100%, 900px);
+  aspect-ratio: 3 / 4;
+  height: auto !important;
+}
+#photos .photo-track{ height: 100% !important; }
+#photos .photo-track img{
+  width: 100%; height: 100% !important;
+  object-fit: cover; display: block;
+}
 
   </style>
 </head>

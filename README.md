@@ -259,8 +259,6 @@ section{ margin-top: clamp(14px, 4.6vw, 24px); }
   .subtitle{ font-size: 12px; }
   .sns .btn{ padding: 7px 10px; }
 }
-
-
   </style>
 </head>
 <body>

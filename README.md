@@ -110,21 +110,29 @@
 /* ===== Responsive scale tuning (drop-in patch) ===== */
 /* ==== MOBILE-FIRST COMPACT PATCH ==== */
 
-/* 공통 폭/글자 크기 살짝 줄이기 */
-:root{ --maxw: 920px; }                 /* 1080 → 920 */
-.container{ max-width: var(--maxw); padding: clamp(14px,4vw,24px); }
+/* ===== Force mobile-friendly scale (drop-in) ===== */
 
-/* 제목/본문 글자 자동 축소(폰에서 작게, 데스크탑에서 적당히) */
-.brandline{ font-size: clamp(22px, 6vw, 36px); margin: clamp(8px,2.6vw,12px) 0; }
-.subtitle{  font-size: clamp(13px, 3.6vw, 16px); }
-.section-title{ font-size: clamp(17px, 4.2vw, 21px); }
-.card blockquote{ font-size: clamp(13px, 3.8vw, 17px); }
-.mini{ font-size: clamp(12px, 3.4vw, 14px); }
+/* iOS가 글자 크기 마음대로 키우는 것 방지 */
+html{ -webkit-text-size-adjust: 100%; }
 
-/* 상단 배너 여백/칩/SNS 버튼 작게 */
-.banner-inner{ padding: clamp(16px,4.5vw,22px); }
+/* 어떤 요소도 화면 너비를 넘지 않게 */
+*,
+*::before,
+*::after{ box-sizing: border-box; }
+img, video{ max-width: 100%; height: auto; display:block; }
+
+/* 전체 너비를 화면에 맞춤 (데스크탑은 920px로 제한) */
+:root{ --maxw: 920px; }
+.container{ width: min(100%, var(--maxw)); margin: 0 auto; padding: clamp(12px,4vw,24px); }
+
+/* 상단 배너/텍스트 축소 */
+.banner-inner{ padding: clamp(14px,4vw,20px); }
+.brandline{ font-size: clamp(22px, 6vw, 36px); margin: clamp(8px,2.5vw,12px) 0; }
+.subtitle{  font-size: clamp(13px, 3.8vw, 16px); }
 .chips{ gap: clamp(6px,1.6vw,8px); }
 .chip{ padding: clamp(5px,1.4vw,7px) clamp(8px,2vw,12px); font-size: clamp(11px,3vw,12px); }
+
+/* SNS 버튼 작게 */
 .sns .btn{
   font-size: clamp(12px,3.4vw,14px);
   padding: clamp(6px,1.8vw,8px) clamp(10px,2.6vw,14px);
@@ -132,39 +140,32 @@
 }
 
 /* 섹션 간격/카드 패딩 축소 */
-section{ margin-top: clamp(16px, 5vw, 26px); }
-.card{ padding: clamp(14px, 4vw, 20px); }
+section{ margin-top: clamp(16px,5vw,26px); }
+.card{ padding: clamp(14px,4vw,20px); }
 
-/* 슬라이더: 3:4 유지 + 화면 높이 넘지 않게 */
+/* 슬라이더: 3:4 + 지나친 높이 방지 */
 .photo-viewport{ aspect-ratio: 3/4; max-height: min(68vh, 90svh); }
 .photo-track{ height: 100%; }
 #photos .photo-dots{ margin-top: 6px; }
 #photos{ margin-bottom: 0; }
 
-/* 리스트/아코디언 더 컴팩트 */
-details.acc > summary,
-details.acc2 > summary{ padding: clamp(12px,3.6vw,16px) clamp(14px,4vw,20px); font-weight: 700; }
-.acc-body, .acc2-body{ padding: clamp(8px,3.2vw,10px) clamp(14px,4vw,20px) clamp(14px,4vw,18px); }
+/* 리스트/아코디언 컴팩트 */
+details.acc > summary{ padding: clamp(12px,3.6vw,16px) clamp(14px,4vw,20px); }
+.acc-body{ padding: clamp(8px,3.2vw,10px) clamp(14px,4vw,20px) clamp(14px,4vw,18px); }
 
-/* 프로젝트 카드/썸네일 작게 */
-.project{ padding: clamp(10px, 2.6vw, 14px); gap: clamp(8px,2.4vw,12px); }
-.thumb{ width: clamp(60px, 18vw, 76px); height: clamp(60px, 18vw, 76px); }
+/* 프로젝트 카드/썸네일 축소 */
+.project{ padding: clamp(10px,2.6vw,14px); gap: clamp(8px,2.4vw,12px); }
+.thumb{ width: clamp(60px,18vw,76px); height: clamp(60px,18vw,76px); }
 
-/* 갤러리: 폰에서 2열, 태블릿 3열, 데스크탑 자동 */
+/* 갤러리: 폰 2열, 태블릿 3열 */
 .gallery{ grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap: clamp(10px,3vw,14px); }
 .gallery img{ aspect-ratio: 3/4; }
 
-/* 더 강하게 모바일 최적화 (<= 768px) */
+/* 폰에서 컬럼 1개 강제 */
 @media (max-width: 768px){
   .grid.cols-2, .grid.cols-3{ grid-template-columns: 1fr; }
-  .section-title:after{ height: 3px; width: 56px; }
+  .section-title{ font-size: clamp(17px,4.2vw,21px); }
   footer{ font-size: 12px; margin: 36px 0 18px; }
-}
-
-/* 초소형 (<= 390px, iPhone mini 등) */
-@media (max-width: 390px){
-  :root{ --maxw: 100%; }
-  .chips{ display: none; } /* 너무 답답하면 주석 처리 */
 }
 
 

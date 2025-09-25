@@ -112,60 +112,65 @@
 
 /* ===== Force mobile-friendly scale (drop-in) ===== */
 
-/* iOS가 글자 크기 마음대로 키우는 것 방지 */
-html{ -webkit-text-size-adjust: 100%; }
+/* ===== Hero (배너) Beauty Pass – mobile 우선 균형 잡기 ===== */
 
-/* 어떤 요소도 화면 너비를 넘지 않게 */
-*,
-*::before,
-*::after{ box-sizing: border-box; }
-img, video{ max-width: 100%; height: auto; display:block; }
-
-/* 전체 너비를 화면에 맞춤 (데스크탑은 920px로 제한) */
-:root{ --maxw: 920px; }
-.container{ width: min(100%, var(--maxw)); margin: 0 auto; padding: clamp(12px,4vw,24px); }
-
-/* 상단 배너/텍스트 축소 */
-.banner-inner{ padding: clamp(14px,4vw,20px); }
-.brandline{ font-size: clamp(22px, 6vw, 36px); margin: clamp(8px,2.5vw,12px) 0; }
-.subtitle{  font-size: clamp(13px, 3.8vw, 16px); }
-.chips{ gap: clamp(6px,1.6vw,8px); }
-.chip{ padding: clamp(5px,1.4vw,7px) clamp(8px,2vw,12px); font-size: clamp(11px,3vw,12px); }
-
-/* SNS 버튼 작게 */
-.sns .btn{
-  font-size: clamp(12px,3.4vw,14px);
-  padding: clamp(6px,1.8vw,8px) clamp(10px,2.6vw,14px);
-  border-width: 2px;
+/* 배너 전체 여백/반경 살짝 축소 */
+.banner{ border-radius: 22px; }
+.banner-inner{
+  padding: clamp(14px,4.6vw,18px) clamp(14px,5vw,20px);
 }
 
-/* 섹션 간격/카드 패딩 축소 */
-section{ margin-top: clamp(16px,5vw,26px); }
-.card{ padding: clamp(14px,4vw,20px); }
+/* 메인 타이틀: 더 작게, 줄간격 촘촘, 자간 살짝 줄임 */
+.brandline{
+  font-size: clamp(20px, 5.8vw, 30px); /* 기존보다 한 단계 다운 */
+  line-height: 1.12;
+  letter-spacing: -0.4px;
+  margin: clamp(6px,2vw,10px) 0 clamp(4px,1.8vw,8px);
+  font-weight: 800;
+}
 
-/* 슬라이더: 3:4 + 지나친 높이 방지 */
-.photo-viewport{ aspect-ratio: 3/4; max-height: min(68vh, 90svh); }
-.photo-track{ height: 100%; }
-#photos .photo-dots{ margin-top: 6px; }
-#photos{ margin-bottom: 0; }
+/* 서브 타이틀: 폭 제한 + 크기 축소 */
+.subtitle{
+  font-size: clamp(12px, 3.4vw, 14px);
+  line-height: 1.5;
+  max-width: 28ch;        /* 문장 폭을 줄여 균형 */
+  margin: 0 auto;         /* 가운데 정렬 */
+}
 
-/* 리스트/아코디언 컴팩트 */
-details.acc > summary{ padding: clamp(12px,3.6vw,16px) clamp(14px,4vw,20px); }
-.acc-body{ padding: clamp(8px,3.2vw,10px) clamp(14px,4vw,20px) clamp(14px,4vw,18px); }
+/* 칩(해시태그) 더 작고 촘촘하게 */
+.chips{ gap: 6px; margin-top: 8px; justify-content: center; }
+.chip{
+  font-size: clamp(10px, 2.8vw, 11px);
+  padding: 4px 8px;
+  border-radius: 999px;
+}
 
-/* 프로젝트 카드/썸네일 축소 */
-.project{ padding: clamp(10px,2.6vw,14px); gap: clamp(8px,2.4vw,12px); }
-.thumb{ width: clamp(60px,18vw,76px); height: clamp(60px,18vw,76px); }
+/* SNS 버튼: 높이/글자 축소, 테두리 얇게 */
+.sns{ gap: 8px; margin-top: 12px; justify-content: center; }
+.sns .btn{
+  font-size: clamp(12px, 3.2vw, 13px);
+  padding: 8px 12px;      /* 높이 낮추기 */
+  border-width: 2px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(2,6,23,.05);
+}
 
-/* 갤러리: 폰 2열, 태블릿 3열 */
-.gallery{ grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap: clamp(10px,3vw,14px); }
-.gallery img{ aspect-ratio: 3/4; }
+/* 섹션 제목도 한 치수 줄이기 */
+.section-title{
+  font-size: clamp(16px, 4vw, 20px);
+  margin: 0 0 8px;
+}
+.section-title:after{ width: 54px; height: 3px; }
 
-/* 폰에서 컬럼 1개 강제 */
-@media (max-width: 768px){
-  .grid.cols-2, .grid.cols-3{ grid-template-columns: 1fr; }
-  .section-title{ font-size: clamp(17px,4.2vw,21px); }
-  footer{ font-size: 12px; margin: 36px 0 18px; }
+/* 컨테이너 폭 살짝 더 좁게 (데스크탑에서도 과하게 커지지 않도록) */
+:root{ --maxw: 900px; }
+.container{ max-width: var(--maxw); }
+
+/* 초소형 화면(<=360px)에서 더 콤팩트 */
+@media (max-width: 360px){
+  .brandline{ font-size: 19px; letter-spacing: -0.2px; }
+  .subtitle{ font-size: 12px; }
+  .sns .btn{ padding: 7px 10px; }
 }
 
 

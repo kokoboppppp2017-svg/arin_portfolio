@@ -259,6 +259,18 @@ section{ margin-top: clamp(14px, 4.6vw, 24px); }
   .subtitle{ font-size: 12px; }
   .sns .btn{ padding: 7px 10px; }
 }
+    /* ===== Desktop 3:4 강제 고정 패치 ===== */
+#photos .photo-viewport{
+  width: min(100%, 900px);   /* 데스크탑에서 너무 넓어지지 않게 상한 */
+  aspect-ratio: 3 / 4;       /* 3:4 비율 고정 */
+  height: auto !important;   /* 혹시 다른 규칙이 높이를 건드려도 무시 */
+}
+#photos .photo-track{ height: 100% !important; }
+#photos .photo-track img{
+  width: 100%; height: 100% !important;
+  object-fit: cover; display: block;
+}
+
   </style>
 </head>
 <body>
